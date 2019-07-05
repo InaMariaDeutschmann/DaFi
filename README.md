@@ -52,7 +52,7 @@ or
 - `--output_file_colsums [filename]` Create output with colsums for each column
 
 ## Please cite as
-Deutschmann, Ina Maria (2019). DaFi - Dataset Filter Program. 10.5281/zenodo.3269808
+Deutschmann, Ina Maria (2019). DaFi - Dataset Filter Program. https://doi.org/10.5281/zenodo.3269808
 
 ## Version
 Version 1.0,
