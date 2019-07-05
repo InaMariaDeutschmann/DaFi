@@ -51,6 +51,8 @@ or
 - `--output_file_rowsums_presence [filename]` Create output with rowsums and presence for each row
 - `--output_file_colsums [filename]` Create output with colsums for each column
 
+## Please cite as
+Deutschmann, Ina Maria (2019). DaFi - Dataset Filter Program. 10.5281/zenodo.3269808
 
 ## Version
 Version 1.0,
