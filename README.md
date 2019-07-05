@@ -2,7 +2,6 @@
 
 DaFi will read in the data line by line. It expects the observations in the rows and the samples in the columns. While doing so, it will determine the presence and only outputs the lines if the presence is not below/above the min/max threshold, which is 0%/100% by default but can be changed with --threshold_min_presence/--threshold_max_presence. On the way the program tracks the number of reads per sample, per gene, and of the dataset. Thus, it is also possible to filter the gene table based on the sum. The threshold is 0/inf but can be changed with --threshold_min_rowsum/--threshold_max_rowsum.
 
-
 ## GENERAL USAGE NOTES
 DaFi is a C++ program that can filter datasets based on the sum of values in each row and/or the presence, i.e. how many values are above 0. It expects a table with the first row being the row names, and the first column being the column names. Further, it expects positive values and no missing values. The makefile contains the code to generate all required commands to compile the program. Go within the terminal into the folder `DaFi` and type
 ```
