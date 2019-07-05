@@ -1,5 +1,7 @@
 # DaFi - Dataset Filter Program
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3269808.svg)](https://doi.org/10.5281/zenodo.3269808)
+
 DaFi will read in the data line by line. It expects the observations in the rows and the samples in the columns. While doing so, it will determine the presence and only outputs the lines if the presence is not below/above the min/max threshold, which is 0%/100% by default but can be changed with --threshold_min_presence/--threshold_max_presence. On the way the program tracks the number of reads per sample, per gene, and of the dataset. Thus, it is also possible to filter the gene table based on the sum. The threshold is 0/inf but can be changed with --threshold_min_rowsum/--threshold_max_rowsum.
 
 ## GENERAL USAGE NOTES
