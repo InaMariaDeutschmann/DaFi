@@ -4,23 +4,19 @@ DaFi will read in the data line by line. It expects the observations in the rows
 
 
 ## GENERAL USAGE NOTES
-- DaFi is a C++ program to filter datasets based on the sum of values in each row, and also based on the presence, i.e. how many values are above 0. It expects a table with the first row being the row names, and the first column being the column names. Further, it expects positive values and no missing values.
+DaFi is a C++ program to filter datasets based on the sum of values in each row, and also based on the presence, i.e. how many values are above 0. It expects a table with the first row being the row names, and the first column being the column names. Further, it expects positive values and no missing values. TThe makefile contains the code to generate all required commands to compile the program. Go within the terminal into the folder `DaFi` and type
+```
+make
+```
+The command to use the program is:
+```
+[PATH to DaFi folder]/build/DaFi --input_file [PATH/FILENAME] [OPTIONS]
+```
 
 ## DEPENDENCIES
 The program requires the 
 - gcc = GNU Compiler Collection (GCC)
 - boost = boost C++ Libraries
-
-## COMPILATION
-The makefile contains the code to generate all required commands to compile the program. Go within the terminal into the folder `DaFi` and type
-```
-make
-```
-
-## Usage
-```
-[PATH to DaFi folder]/build/DaFi --input_file [PATH/FILENAME] [OPTIONS]
-```
 
 ## Get help with
 ```
