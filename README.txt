@@ -24,7 +24,7 @@ make
 [PATH to DaFi folder]/build/DaFi --input_file [PATH/FILENAME] [OPTIONS]
 ```
 
-# Get help and option overview with
+# Get help with
 ```
 ./build/DaFi -h
 ```
@@ -32,6 +32,29 @@ or
 ```
 ./build/DaFi --help
 ```
+
+# Options
+- `--help` Returns this help message
+- `-v,--version` Returns version of the program
+- `-d,--defaults` Returns default values of the program
+
+Required options
+- `-f,--input_file [filename]` Name of the input file (first line are the column names, first row rownames)
+
+Thresholds input
+- `--threshold_min_rowsum [num]` Default: 0. Minimal allowed row sum that gets not filtered out
+- `--threshold_max_rowsum [num]` Default: inf. Maximal allowed row sum that gets not filtered out
+- `--threshold_min_presence [num]` Default: 0. Minimal allowed presence that gets not filtered out
+- `--threshold_max_presence [num]` Default: 100. Maximal allowed presence that gets not filtered out
+
+Inputfile separators
+- `--separator_file \"[sep]\"` Default: tab, other possibilities, but not limited to: \";\" or \" \"
+
+Outputfiles
+- `-o,--output_file_filtered [filename]` Default: \"filtered_data.txt\"; name of the output network file
+- `--no_output_file_filtered` Default: output filtered data file. With this flag results will not be printed
+- `--output_file_rowsums_presence [filename]` Create output with rowsums and presence for each row
+- `--output_file_colsums [filename]` Create output with colsums for each column
 
 # CONTACT
 Ina Maria Deutschmann
