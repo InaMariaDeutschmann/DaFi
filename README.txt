@@ -55,8 +55,8 @@ or
 Deutschmann, Ina Maria (2019). DaFi - Dataset Filter Program. https://doi.org/10.5281/zenodo.3269808
 
 ## Version
-Version 1.0,
-5th of July 2019
+Version 1.0.1,
+6th of July 2019
 
 ## CONTACT
 Ina Maria Deutschmann,
