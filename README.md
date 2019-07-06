@@ -55,8 +55,8 @@ or
 Deutschmann, Ina Maria (2019). DaFi - Dataset Filter Program. https://doi.org/10.5281/zenodo.3269808
 
 ## Version
-Version 1.0,
-5th of July 2019
+Version 1.0.1,
+6th of July 2019
 
 ## CONTACT
 <div itemscope itemtype="https://schema.org/Person"><a itemprop="sameAs" content="https://orcid.org/0000-0002-3512-261X" href="https://orcid.org/0000-0002-3512-261X" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">Ina Maria Deutschmann</a></div>
