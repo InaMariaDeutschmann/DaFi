@@ -12,7 +12,7 @@
 class DaFi{
     public:
         // Constructor
-        DaFi( std::string set_sep, int set_indicator_output_rowsums_presence, std::string set_filename_output_rowsums_presence, double set_threshold_min_presence, double set_threshold_max_presence, double set_threshold_min_rowsum, double set_threshold_max_rowsum() );
+        DaFi( std::string set_sep, int set_indicator_output_rowsums_presence, std::string set_filename_output_rowsums_presence, double set_threshold_min_presence, double set_threshold_max_presence, double set_threshold_min_rowsum, double set_threshold_max_rowsum );
     
         // set_num_samples( l )
         void set_num_samples( std::string line );

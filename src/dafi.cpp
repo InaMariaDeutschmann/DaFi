@@ -4,7 +4,7 @@
 #include <fstream> // read in and out files
 #include <cmath>   // nan("")
 
-DaFi::DaFi( std::string set_sep, int set_indicator_output_rowsums_presence, std::string set_filename_output_rowsums_presence, double set_threshold_min_presence, double set_threshold_min_rowsum ){
+DaFi::DaFi( std::string set_sep, int set_indicator_output_rowsums_presence, std::string set_filename_output_rowsums_presence, double set_threshold_min_presence, double set_threshold_max_presence, double set_threshold_min_rowsum, double set_threshold_max_rowsum ){
     // Tracking
     error_occurred = 0;
     error_message = "";

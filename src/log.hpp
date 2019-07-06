@@ -51,9 +51,9 @@ class Log{
         int indicator_output_colsums;                 // Indicator to create extra output
         int indicator_output_file_filter;             // Indicator to create filtered file output
         double threshold_min_rowsum;                  // Threshold for min rowsum
-        double threshold_min_rowsum;                  // Threshold for max rowsum
+        double threshold_max_rowsum;                  // Threshold for max rowsum
         double threshold_min_presence;                // Threshold for min presence within row
-        double threshold_min_presence;                // Threshold for max presence within row
+        double threshold_max_presence;                // Threshold for max presence within row
 
         // Filenames
         std::string filename_input;                   // Filename/path of input
