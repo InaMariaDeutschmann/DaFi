@@ -236,12 +236,22 @@ int main(int argc, char *argv[]) {
             my_DaFi.set_num_samples( l ); // first line is colnames, is used to determine the number of columns in file
             OUT << l << std::endl;
             
-            while( getline( IN, l).good() )
+            if( log.get_indicator_output_file_filter() == 1 )
             {
-                std::string outputline = my_DaFi.filter( l ); // Here happenes the filtering!!!
-                if( outputline != "" && log.get_indicator_output_file_filter() == 1 )
+                while( getline( IN, l).good() )
                 {
-                    OUT << outputline << std::endl;
+                    std::string outputline = my_DaFi.filter( l ); // Here happenes the filtering!!!
+                    if( outputline != "" )
+                    {
+                        OUT << outputline << std::endl;
+                    }
+                }
+            }
+            else
+            {
+                while( getline( IN, l).good() )
+                {
+                    std::string outputline = my_DaFi.filter( l ); // Here happenes the filtering!!!
                 }
             }
         }

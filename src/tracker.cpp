@@ -4,12 +4,14 @@
 #include <fstream> // read in and out files
 
 Tracker::Tracker(){    
-    Tracker_fullfillded_rowsum = 0;
-    Tracker_not_fullfillded_rowsum = 0;
-    Tracker_fullfillded_presence = 0;
-    Tracker_not_fullfillded_presence = 0;
-    Tracker_fullfillded_both = 0;
+    Tracker_fulfilled_rowsum = 0;
+    Tracker_not_fulfilled_rowsum = 0;
+    Tracker_fulfilled_presence = 0;
+    Tracker_not_fulfilled_presence = 0;
+    Tracker_fulfilled_both = 0;
     Tracker_num_rows = 0;
+    Tracker_rowsum_kept = 0;
+    Tracker_rowsum_filtered = 0;
 };
 
 // Add info
@@ -23,64 +25,64 @@ void Tracker::add_colsum( int i, double d ){
     Tracker_colsum[ i ] += d;
     Tracker_colsum[ 0 ] += d;
 };
-void Tracker::add_plus1_Tracker_fullfillded_rowsum(){
-    Tracker_fullfillded_rowsum += 1;
+void Tracker::add_plus1_Tracker_fulfilled_rowsum(){
+    Tracker_fulfilled_rowsum += 1;
 };
-void Tracker::add_plus1_Tracker_not_fullfillded_rowsum(){
-    Tracker_not_fullfillded_rowsum += 1;
+void Tracker::add_plus1_Tracker_not_fulfilled_rowsum(){
+    Tracker_not_fulfilled_rowsum += 1;
 };
-void Tracker::add_plus1_Tracker_fullfillded_presence(){
-    Tracker_fullfillded_presence += 1;
+void Tracker::add_plus1_Tracker_fulfilled_presence(){
+    Tracker_fulfilled_presence += 1;
 };
-void Tracker::add_plus1_Tracker_not_fullfillded_presence(){
-    Tracker_not_fullfillded_presence += 1;
+void Tracker::add_plus1_Tracker_not_fulfilled_presence(){
+    Tracker_not_fulfilled_presence += 1;
 };
-void Tracker::add_plus1_Tracker_fullfillded_both(){
-    Tracker_fullfillded_both += 1;
+void Tracker::add_plus1_Tracker_fulfilled_both(){
+    Tracker_fulfilled_both += 1;
 };
 void Tracker::add_plus1_Tracker_num_rows(){
     Tracker_num_rows += 1;
 };
+void Tracker::add_rowsum_kept( double d ){
+    Tracker_rowsum_kept += d;
+};
+void Tracker::add_rowsum_filtered( double d ){
+    Tracker_rowsum_filtered += d;
+};
 
 // Get output string
-std::string Tracker::get_report( double threshold_min_rowsum, double threshold_min_presence, double rowsum_kept, double rowsum_filtered ){
+std::string Tracker::get_report(){
     std::string outputline = "";
     
     outputline += "\nTrackers:\n";
     outputline += std::to_string( Tracker_num_rows );
     outputline += " rows in total.\n\t";
-    outputline += std::to_string( Tracker_fullfillded_rowsum );
-    outputline += " rows have sum >= ";
-    outputline += std::to_string( threshold_min_rowsum );
-    outputline += "\n\t";
-    outputline += std::to_string( Tracker_not_fullfillded_rowsum );
-    outputline += " rows have sum < ";
-    outputline += std::to_string( threshold_min_rowsum );
-    outputline += "\n\t";
-    outputline += std::to_string( Tracker_fullfillded_presence );
-    outputline += " rows have presence >= ";
-    outputline += std::to_string( threshold_min_presence );
-    outputline += "\n\t";
-    outputline += std::to_string( Tracker_not_fullfillded_presence );
-    outputline += " rows have presence < ";
-    outputline += std::to_string( threshold_min_presence );
-    outputline += "\n\t";
-    outputline += std::to_string( Tracker_fullfillded_both );
-    outputline += " rows have sum >= ";
-    outputline += std::to_string( threshold_min_rowsum );
-    outputline += " and presence >= ";
-    outputline += std::to_string( threshold_min_presence );
-    outputline += "\n\nRowsum:\n\tTotal: ";
+    outputline += "\nOnly RowSum Filter: ";
+    outputline += "\n\tRows Kept: ";
+    outputline += std::to_string( Tracker_fulfilled_rowsum );
+    outputline += "\n\tRows Filtered: ";
+    outputline += std::to_string( Tracker_not_fulfilled_rowsum );
+    outputline += "\nOnly Presence Filter: ";
+    outputline += "\n\tRows Kept: ";
+    outputline += std::to_string( Tracker_fulfilled_presence );
+    outputline += "\n\tRows Filtered: ";
+    outputline += std::to_string( Tracker_not_fulfilled_presence );
+    outputline += "\nBoth: ";
+    outputline += "\n\tRows Kept: ";
+    outputline += std::to_string( Tracker_fulfilled_both );
+    outputline += "\n\tRows Filtered: ";
+    outputline += std::to_string( Tracker_num_rows - Tracker_fulfilled_both );
+    outputline += "\n\nSum:\n\tTotal: ";
     outputline += std::to_string( Tracker_colsum[0] );
     outputline += "\n\tKept: ";
-    outputline += std::to_string(rowsum_kept);
+    outputline += std::to_string( Tracker_rowsum_kept );
     outputline += "\n\tFiltered: ";
-    outputline += std::to_string(rowsum_filtered);
-    outputline += "\n\nRowsum in percentage:\n\tTotal: 100%";
+    outputline += std::to_string( Tracker_rowsum_filtered );
+    outputline += "\n\nSum in percentage:\n\tTotal: 100%";
     outputline += "\n\tKept: ";
-    outputline += std::to_string( rowsum_kept / Tracker_colsum[0] * 100 );
+    outputline += std::to_string( Tracker_rowsum_kept / Tracker_colsum[0] * 100 );
     outputline += "%\n\tFiltered: ";
-    outputline += std::to_string( rowsum_filtered / Tracker_colsum[0] * 100 );
+    outputline += std::to_string( Tracker_rowsum_filtered / Tracker_colsum[0] * 100 );
     outputline += "%\nDone!\n\n";
     
     return outputline;

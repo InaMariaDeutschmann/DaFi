@@ -83,11 +83,11 @@ double Log::get_threshold_min_rowsum(){
 double Log::get_threshold_max_rowsum(){
     return threshold_max_rowsum;
 };
-double Log::get_threshold_max_presence(){
-    return threshold_max_presence;
-};
 double Log::get_threshold_min_presence(){
     return threshold_min_presence;
+};
+double Log::get_threshold_max_presence(){
+    return threshold_max_presence;
 };
 std::string Log::get_filename_input(){
     return filename_input;

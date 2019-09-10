@@ -11,8 +11,6 @@ DaFi::DaFi( std::string set_sep, int set_indicator_output_rowsums_presence, std:
     log_message = "";
     triplet_info_message = "";
     indicator_triplet_edge = 0;
-    rowsum_filtered = 0;
-    rowsum_kept = 0;
 
     // Filename
     filename_output_rowsums_presence = set_filename_output_rowsums_presence;
@@ -71,7 +69,7 @@ std::string DaFi::filter( std::string line ){
     double presence = 0;
     double min_presence_allowed = num_samples * threshold_min_presence / 100;
     double max_presence_allowed = num_samples * threshold_max_presence / 100;
-    for( int i = 1; i < num_samples; i++)
+    for( int i = 1; i <= num_samples; i++)
     {
         double d = std::stod( v[i] );
         if( d > 0 )
@@ -88,32 +86,32 @@ std::string DaFi::filter( std::string line ){
     int bool_presence = 0;
     if( rowsum >= threshold_min_rowsum && rowsum <= threshold_max_rowsum )
     {
-        my_tracker.add_plus1_Tracker_fullfillded_rowsum();
+        my_tracker.add_plus1_Tracker_fulfilled_rowsum();
         bool_rowsum = 1;
     }
     else
     {
-        my_tracker.add_plus1_Tracker_not_fullfillded_rowsum();
+        my_tracker.add_plus1_Tracker_not_fulfilled_rowsum();
     }
     if( presence >= min_presence_allowed && presence <= max_presence_allowed )
     {
-        my_tracker.add_plus1_Tracker_fullfillded_presence();
+        my_tracker.add_plus1_Tracker_fulfilled_presence();
         bool_presence = 1;
     }
     else
     {
-        my_tracker.add_plus1_Tracker_not_fullfillded_presence();
+        my_tracker.add_plus1_Tracker_not_fulfilled_presence();
     }
     
     if( bool_rowsum && bool_presence )
     {
-        my_tracker.add_plus1_Tracker_fullfillded_both();
+        my_tracker.add_plus1_Tracker_fulfilled_both();
         outputline = line;
-        rowsum_kept += rowsum;
+        my_tracker.add_rowsum_kept( rowsum );
     }
     else
     {
-        rowsum_filtered += rowsum;
+        my_tracker.add_rowsum_filtered( rowsum );
     }
     my_tracker.add_plus1_Tracker_num_rows();
     
@@ -134,5 +132,5 @@ std::string DaFi::get_tracker_report( int indicator_print_colsum, std::string fi
     {
         my_tracker.get_report_colsums( filename_output_colsums );
     }
-    return my_tracker.get_report( threshold_min_rowsum, threshold_min_presence, rowsum_kept, rowsum_filtered );
+    return my_tracker.get_report();
 };

@@ -1,0 +1,6 @@
+# Updates
+
+## 8th July 2019
+-> Updated Tracker output in log file
+-> included if-condition(if output should be made) before going through lines -> will increase the speed a bit, since this condition is only checked once
+-> Bug (last colsum was not considered in v1.0.1) is now fixed
